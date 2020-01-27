@@ -25,7 +25,7 @@ public class putDesigns {
 		LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
 		Logger rootLogger = loggerContext.getLogger("org.mongodb.driver");
 		rootLogger.setLevel(Level.ERROR);
-		String Filebase = "/root/mongo/data/author/design";
+		String Filebase =Const.FOLDER_BASE;
 		try {
 			for (int i = 1; i < 8; i++) {
 				File dir = new File(Filebase + i);
@@ -33,7 +33,7 @@ public class putDesigns {
 
 				// Running on another port
 				ProcessBuilder p1 = new ProcessBuilder(Const.MONGOD_LOC, "--config", "/root/mongo/mongo10port.conf",
-						"--dbpath", Filebase + i, "--bind_ip_all", "--fork", "--logpath", "/root/log/mongodb.log");
+						"--dbpath", Filebase + i, "--bind_ip_all", "--fork", "--logpath", Const.LOG_LOC);
 
 				Process p;
 
